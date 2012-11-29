@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+    <info>
+        <name>TeamCityCiGame</name>
+        <display-name>CI Game</display-name>
+        <version>@version@</version>
+        <description>Tracks build and new test status to maintain a league, providing motivation to maintain successful builds and maximise test coverage</description>
+
+        <vendor>
+            <name>Mike Hanson</name>
+            <url>http://www.mikehanson.com</url>
+        </vendor>
+    </info>
+</teamcity-plugin>

@@ -1,0 +1,5 @@
+Team City CI Game Plugin
+
+Monitors build completion and tests in order to compile a league of developer performance with regard to build
+and new unit test success.
+
