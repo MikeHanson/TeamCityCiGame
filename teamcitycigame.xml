@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="TeamCityCiGame" default="all">
+<project name="teamCityCiGame" default="all">
 
 
-    <property file="build.properties"/>
+    <property file="teamCityCiGame.properties"/>
     <!-- Uncomment the following property if no tests compilation is needed -->
     <!--
-   <property name="skip.tests" value="true"/>
-    -->
+    <property name="skip.tests" value="true"/>
+     -->
 
     <!-- Compiler options -->
 
@@ -99,45 +99,45 @@
 
     <!-- Module server -->
 
-    <dirname property="module.TeamCityCiGame.server.basedir" file="${ant.file}"/>
+    <dirname property="module.server.basedir" file="${ant.file}"/>
 
 
 
-    <property name="compiler.args.TeamCityCiGame.server" value="${compiler.args}"/>
+    <property name="compiler.args.server" value="${compiler.args}"/>
 
-    <property name="TeamCityCiGame.server.output.dir" value="${module.TeamCityCiGame.server.basedir}/out/production/server"/>
-    <property name="TeamCityCiGame.server.testoutput.dir" value="${module.TeamCityCiGame.server.basedir}/out/test/server"/>
+    <property name="server.output.dir" value="${module.server.basedir}/out/production/server"/>
+    <property name="server.testoutput.dir" value="${module.server.basedir}/out/test/server"/>
 
-    <path id="TeamCityCiGame.server.module.bootclasspath">
+    <path id="server.module.bootclasspath">
         <!-- Paths to be included in compilation bootclasspath -->
     </path>
 
-    <path id="TeamCityCiGame.server.module.production.classpath">
+    <path id="server.module.production.classpath">
         <path refid="library.teamcity_third-party.classpath"/>
         <path refid="library.teamcity_open_api_common.classpath"/>
         <path refid="library.teamcity_open_api_server.classpath"/>
         <path refid="library.tomcat.classpath"/>
     </path>
 
-    <path id="TeamCityCiGame.server.runtime.production.module.classpath">
-        <pathelement location="${TeamCityCiGame.server.output.dir}"/>
+    <path id="server.runtime.production.module.classpath">
+        <pathelement location="${server.output.dir}"/>
         <path refid="library.teamcity_third-party.classpath"/>
         <path refid="library.teamcity_open_api_common.classpath"/>
         <path refid="library.teamcity_open_api_server.classpath"/>
         <path refid="library.tomcat.classpath"/>
     </path>
 
-    <path id="TeamCityCiGame.server.module.classpath">
-        <pathelement location="${TeamCityCiGame.server.output.dir}"/>
+    <path id="server.module.classpath">
+        <pathelement location="${server.output.dir}"/>
         <path refid="library.teamcity_third-party.classpath"/>
         <path refid="library.teamcity_open_api_common.classpath"/>
         <path refid="library.teamcity_open_api_server.classpath"/>
         <path refid="library.tomcat.classpath"/>
     </path>
 
-    <path id="TeamCityCiGame.server.runtime.module.classpath">
-        <pathelement location="${TeamCityCiGame.server.testoutput.dir}"/>
-        <pathelement location="${TeamCityCiGame.server.output.dir}"/>
+    <path id="server.runtime.module.classpath">
+        <pathelement location="${server.testoutput.dir}"/>
+        <pathelement location="${server.output.dir}"/>
         <path refid="library.teamcity_third-party.classpath"/>
         <path refid="library.teamcity_open_api_common.classpath"/>
         <path refid="library.teamcity_open_api_server.classpath"/>
@@ -145,60 +145,60 @@
     </path>
 
 
-    <patternset id="excluded.from.module.TeamCityCiGame.server">
+    <patternset id="excluded.from.module.server">
         <patternset refid="ignored.files"/>
     </patternset>
 
-    <patternset id="excluded.from.compilation.TeamCityCiGame.server">
-        <patternset refid="excluded.from.module.TeamCityCiGame.server"/>
+    <patternset id="excluded.from.compilation.server">
+        <patternset refid="excluded.from.module.server"/>
     </patternset>
 
-    <path id="TeamCityCiGame.server.module.sourcepath">
-        <dirset dir="${module.TeamCityCiGame.server.basedir}">
+    <path id="server.module.sourcepath">
+        <dirset dir="${module.server.basedir}">
             <include name="resources"/>
             <include name="src"/>
         </dirset>
     </path>
 
 
-    <target name="compile.module.TeamCityCiGame.server" depends="compile.module.TeamCityCiGame.server.production,compile.module.TeamCityCiGame.server.tests" description="Compile module server"/>
+    <target name="compile.module.server" depends="compile.module.server.production,compile.module.server.tests" description="Compile module server"/>
 
-    <target name="compile.module.TeamCityCiGame.server.production" description="Compile module server; production classes">
-        <mkdir dir="${TeamCityCiGame.server.output.dir}"/>
-        <javac destdir="${TeamCityCiGame.server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
-            <compilerarg line="${compiler.args.TeamCityCiGame.server}"/>
-            <bootclasspath refid="TeamCityCiGame.server.module.bootclasspath"/>
-            <classpath refid="TeamCityCiGame.server.module.production.classpath"/>
-            <src refid="TeamCityCiGame.server.module.sourcepath"/>
-            <patternset refid="excluded.from.compilation.TeamCityCiGame.server"/>
+    <target name="compile.module.server.production" description="Compile module server; production classes">
+        <mkdir dir="${server.output.dir}"/>
+        <javac destdir="${server.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true">
+            <compilerarg line="${compiler.args.server}"/>
+            <bootclasspath refid="server.module.bootclasspath"/>
+            <classpath refid="server.module.production.classpath"/>
+            <src refid="server.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.server"/>
         </javac>
 
-        <copy todir="${TeamCityCiGame.server.output.dir}">
-            <fileset dir="${module.TeamCityCiGame.server.basedir}/resources">
+        <copy todir="${server.output.dir}">
+            <fileset dir="${module.server.basedir}/resources">
                 <patternset refid="compiler.resources"/>
                 <type type="file"/>
             </fileset>
-            <fileset dir="${module.TeamCityCiGame.server.basedir}/src">
+            <fileset dir="${module.server.basedir}/src">
                 <patternset refid="compiler.resources"/>
                 <type type="file"/>
             </fileset>
         </copy>
     </target>
 
-    <target name="compile.module.TeamCityCiGame.server.tests" depends="compile.module.TeamCityCiGame.server.production" description="compile module server; test classes" unless="skip.tests"/>
+    <target name="compile.module.server.tests" depends="compile.module.server.production" description="compile module server; test classes" unless="skip.tests"/>
 
-    <target name="clean.module.TeamCityCiGame.server" description="cleanup module">
-        <delete dir="${TeamCityCiGame.server.output.dir}"/>
-        <delete dir="${TeamCityCiGame.server.testoutput.dir}"/>
+    <target name="clean.module.server" description="cleanup module">
+        <delete dir="${server.output.dir}"/>
+        <delete dir="${server.testoutput.dir}"/>
     </target>
 
     <target name="init" description="Build initialization">
         <!-- Perform any build initialization in this target -->
     </target>
 
-    <target name="clean" depends="clean.module.TeamCityCiGame.server" description="cleanup all"/>
+    <target name="clean" depends="clean.module.server" description="cleanup all"/>
 
-    <target name="build.modules" depends="init, clean, compile.module.TeamCityCiGame.server" description="build all modules"/>
+    <target name="build.modules" depends="init, clean, compile.module.server" description="build all modules"/>
 
     <target name="all" depends="build.modules" description="build all"/>
 </project>

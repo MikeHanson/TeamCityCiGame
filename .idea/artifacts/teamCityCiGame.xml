@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact build-on-make="true" name="teamCityCiGame">
+    <output-path>$PROJECT_DIR$/out/artifacts/teamCityCiGame</output-path>
+    <root id="root">
+      <element id="archive" name="server.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$TeamCityDistribution$/devPackage/samplePlugin/src/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/src/META-INF/build-server-plugin-teamCityCiGame.xml" />
+          <element id="dir-copy" path="$PROJECT_DIR$/resources/buildServerResources" />
+        </element>
+        <element id="module-output" name="server" />
+      </element>
+      <element id="library" level="project" name="Tomcat" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources/buildServerResources" />
+      <element id="library" level="project" name="TeamCity Third-Party common" />
+      <element id="library" level="project" name="TeamCity Open API server" />
+      <element id="library" level="project" name="TeamCity Open API common" />
+    </root>
+  </artifact>
+</component>

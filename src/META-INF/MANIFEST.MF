@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Class-Path: server-api.jar annotations.jar spring.jar openapi.jar util
+ .jar spring-webmvc.jar jdom.jar common-api.jar runtime-util.jar servl
+ et-api.jar
+Main-Class:
+
